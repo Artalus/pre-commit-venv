@@ -1,0 +1,21 @@
+[project]
+name = "pre_commit_venv_wrapper"
+version = "0.0.0"
+
+[project.scripts]
+pre-commit-venv-wrapper = "pre_commit_venv_wrapper.__main__:main"
+
+[dependency-groups]
+dev = [
+    "mypy",
+    "pre-commit",
+    "pytest",
+    "ruff",
+]
+
+[tool.mypy]
+strict = true
+
+extend-select = [
+    "I",  # isort
+]

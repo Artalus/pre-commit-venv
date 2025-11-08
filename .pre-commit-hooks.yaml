@@ -1,0 +1,6 @@
+- id: venv
+  name: venv-custom-command
+  description: run some executable from your local virtual environment
+  entry: pre-commit-venv-wrapper
+  language: python
+  types_or: [python, pyi]

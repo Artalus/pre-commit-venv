@@ -1,0 +1,28 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: check-added-large-files
+  - id: check-toml
+  - id: check-merge-conflict
+
+- repo: .
+  rev: "0.1"
+  hooks:
+  - id: venv
+    alias: mypy
+    name: run venv-mypy
+    args: [mypy]
+
+  - id: venv
+    alias: ruff-check
+    name: run venv-ruff-check
+    args: [ruff, check]
+
+  - id: venv
+    alias: ruff-format
+    name: run venv-ruff-format
+    args: [ruff, format, --diff]
