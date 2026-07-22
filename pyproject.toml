@@ -5,17 +5,28 @@ version = "0.0.0"
 [project.scripts]
 pre-commit-venv-wrapper = "pre_commit_venv_wrapper.__main__:main"
 
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+
 [dependency-groups]
 dev = [
     "mypy",
     "pre-commit",
-    "pytest",
     "ruff",
 ]
+
 
 [tool.mypy]
 strict = true
 
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
 extend-select = [
     "I",  # isort
 ]
