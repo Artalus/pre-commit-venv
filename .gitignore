@@ -1,2 +1,4 @@
+.pre-commit-venv
+
 *.egg-info/
 *.pyc
