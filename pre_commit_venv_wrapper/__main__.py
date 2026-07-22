@@ -17,6 +17,9 @@ def main() -> int:
         sys.exit(1)
 
     config = Config.load()
+    if isinstance(config, Exception):
+        log(f"ERROR: pre-commit-venv could not load config: {config}")
+        return 1
 
     command = script_args[:]
     command[0] = str(config.bin_dir / command[0])
@@ -37,20 +40,18 @@ class Config:
     bin_dir: Path
 
     @staticmethod
-    def load() -> "Config":
+    def load() -> "Config | Exception":
         cfg = Path(CFG_NAME).absolute()
         if not cfg.is_file():
-            raise RuntimeError(f"Config file {cfg} does not exist")
+            return RuntimeError(f"file `{cfg}` does not exist")
 
         txt = cfg.read_text().strip()
         if not txt:
-            raise RuntimeError(f"Config file {cfg} is empty")
+            return RuntimeError(f"file `{cfg}` is empty")
 
         venv = Path(txt).absolute()
         if not venv.is_dir():
-            raise RuntimeError(
-                f"Virtualenv path `{venv}` from {cfg} is not a directory"
-            )
+            return RuntimeError(f"virtualenv path `{venv}` from `{cfg}` is not a directory")
 
         bin_dir = venv / ("Scripts" if sys.platform == "win32" else "bin")
         return Config(bin_dir=bin_dir)

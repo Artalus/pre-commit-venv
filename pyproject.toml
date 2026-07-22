@@ -1,6 +1,8 @@
 [project]
 name = "pre_commit_venv_wrapper"
 version = "0.0.0"
+# for | in typing
+requires-python = ">= 3.10"
 
 [project.scripts]
 pre-commit-venv-wrapper = "pre_commit_venv_wrapper.__main__:main"
