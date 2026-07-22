@@ -10,7 +10,8 @@ repos:
   - id: check-merge-conflict
 
 - repo: .
-  rev: "0.1"
+  # use `prek clean` to update
+  rev: HEAD
   hooks:
   - id: venv
     alias: mypy
