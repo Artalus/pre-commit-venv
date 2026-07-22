@@ -57,5 +57,14 @@ class Config:
         return Config(bin_dir=bin_dir)
 
 
+def script() -> None:
+    try:
+        sys.exit(main())
+    except Exception as e:
+        log(f"Unhandled exception {type(e).__name__} '{e}'")
+        log(f"Report a bug or hack away at hook file at:\n{__file__}")
+        raise
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    script()

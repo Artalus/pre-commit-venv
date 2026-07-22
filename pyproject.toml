@@ -5,7 +5,7 @@ version = "0.0.0"
 requires-python = ">= 3.10"
 
 [project.scripts]
-pre-commit-venv-wrapper = "pre_commit_venv_wrapper.__main__:main"
+pre-commit-venv-wrapper = "pre_commit_venv_wrapper.__main__:script"
 
 
 [build-system]
