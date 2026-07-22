@@ -5,6 +5,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 CFG_NAME = ".pre-commit-venv"
 
@@ -27,7 +28,7 @@ def main() -> int:
     return retcode
 
 
-def log(*a, **kw):
+def log(*a: Any, **kw: Any) -> None:
     print("PCVW : ", *a, **kw, file=sys.stderr)
 
 
