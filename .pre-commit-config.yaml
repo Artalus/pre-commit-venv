@@ -16,6 +16,7 @@ repos:
     alias: mypy
     name: run venv-mypy
     args: [mypy]
+    pass_filenames: false
 
   - id: venv
     alias: ruff-check

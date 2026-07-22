@@ -21,6 +21,7 @@ dev = [
 
 [tool.mypy]
 strict = true
+files = ["pre_commit_venv_wrapper"]
 
 
 [tool.ruff]
